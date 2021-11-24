@@ -25,8 +25,10 @@ function startGame() {
 
     let gridMaxLength;
 
-    let bombArray = []
+    let bombArray = [];
     console.log(bombArray);
+
+    let attempts = 0;
 
     if (levelDifficulty === 1) {
         gridMaxNumber = 100;
@@ -37,14 +39,16 @@ function startGame() {
         gridMaxLength = 9; 
         
     }else if (levelDifficulty === 3) {
-        gridMaxNumber = 49;
+        gridMaxNumber = 17;
         gridMaxLength = 7; 
         
     }
 
     while (bombArray.length <= 16) {
 
-        bombArray.push(getRndInteger(1, gridMaxNumber))
+       if (!bombArray.includes(bombArray)) {
+    }     bombArray.push(getRndInteger(1, gridMaxNumber))
+           
         
     }
 
@@ -52,18 +56,21 @@ function startGame() {
         
         const newSquare = generateSquare(i, gridMaxLength);
 
+
         if (bombArray.includes(i)) {
 
             newSquare.addEventListener('click',bomb )
+            newSquare.addEventListener('click',EndGame )
             
-        }else{newSquare.addEventListener('click',clicked )
+        }else if(!bombArray.includes(i)){
+            newSquare.addEventListener('click',clicked )
+
+        }else if (tent.length = tent.length = bombArray.length) {
+            alert('HAI VINTO')
         }
-
+  
         gridGame.appendChild(newSquare)
-        
     }
-
-    
 }
 
 function clicked() {
@@ -74,10 +81,15 @@ function bomb() {
     this.classList.add('bomba');
 }
 
-function EndGame(params) {
-    
-}
 
+function EndGame(params) {
+    let tent = document.getElementsByClassName('active').length
+    this.style.pointerEvents = 'none';
+    alert('HAI PERSO' + ' ' + 'tentativi' + ' ' + tent)
+
+    return tent
+}
+console.log(tent);
 
 function generateSquare(generateNumber, gridSize) {
     
