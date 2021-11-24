@@ -39,15 +39,18 @@ function startGame() {
         gridMaxLength = 9; 
         
     }else if (levelDifficulty === 3) {
-        gridMaxNumber = 49;
+        gridMaxNumber = 18;
         gridMaxLength = 7; 
         
     }
 
     while (bombArray.length <= 16) {
 
-       if (!bombArray.includes(bombArray)) {
-    }     bombArray.push(getRndInteger(1, gridMaxNumber))
+        let randomNumber = getRndInteger(1, gridMaxNumber);
+
+       if (!bombArray.includes(randomNumber)) {
+        bombArray.push(randomNumber)
+    }     
            
         
     }
@@ -106,6 +109,7 @@ function generateSquare(generateNumber, gridSize) {
 
     return square;
 }
+
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
