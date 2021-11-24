@@ -42,6 +42,12 @@ function startGame() {
         
     }
 
+    while (bombArray.length <= 16) {
+
+        bombArray.push(getRndInteger(1, gridMaxNumber))
+        
+    }
+
     for (let i = 1; i <= gridMaxNumber; i++) {
         
         const newSquare = generateSquare(i, gridMaxLength);
@@ -57,11 +63,7 @@ function startGame() {
         
     }
 
-    while (bombArray.length <= 16) {
-
-        bombArray.push(getRndInteger(1, gridMaxNumber))
-        
-    }
+    
 }
 
 function clicked() {
@@ -72,7 +74,9 @@ function bomb() {
     this.classList.add('bomba');
 }
 
-
+function EndGame(params) {
+    
+}
 
 
 function generateSquare(generateNumber, gridSize) {
