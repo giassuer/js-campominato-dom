@@ -74,14 +74,15 @@ main{
     display: none;
 }
 
+.bomba{
+    background-color: #dc143c;
+    color: white;
+}
+
 .active{
     background-color: #6495ed;
     color: white;
 }
 
-.bomba{
-    background-color: #dc143c;
-    color: white;
-}
 
 /* END COMMON */

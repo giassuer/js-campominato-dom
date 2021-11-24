@@ -46,7 +46,12 @@ function startGame() {
         
         const newSquare = generateSquare(i, gridMaxLength);
 
-        newSquare.addEventListener('click',clicked )
+        if (bombArray.includes(i)) {
+
+            newSquare.addEventListener('click',bomb )
+            
+        }else{newSquare.addEventListener('click',clicked )
+        }
 
         gridGame.appendChild(newSquare)
         
@@ -57,13 +62,6 @@ function startGame() {
         bombArray.push(getRndInteger(1, gridMaxNumber))
         
     }
-
-    if (bombArray.includes(gridMaxNumber)) {
-
-        newSquare.addEventListener('click',bomb )
-        
-    }
-
 }
 
 function clicked() {
