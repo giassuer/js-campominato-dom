@@ -39,7 +39,7 @@ function startGame() {
         gridMaxLength = 9; 
         
     }else if (levelDifficulty === 3) {
-        gridMaxNumber = 17;
+        gridMaxNumber = 49;
         gridMaxLength = 7; 
         
     }
@@ -62,10 +62,12 @@ function startGame() {
             newSquare.addEventListener('click',bomb )
             newSquare.addEventListener('click',EndGame )
             
+            
         }else if(!bombArray.includes(i)){
             newSquare.addEventListener('click',clicked )
+            newSquare.addEventListener('click',clickNon)
 
-        }else if (tent.length = tent.length = bombArray.length) {
+        }else if (tent.length = tent. length - bombArray.length) {
             alert('HAI VINTO')
         }
   
@@ -85,21 +87,24 @@ function bomb() {
 function EndGame(params) {
     let tent = document.getElementsByClassName('active').length
     this.style.pointerEvents = 'none';
-    alert('HAI PERSO' + ' ' + 'tentativi' + ' ' + tent)
+    alert('HAI PERSO' + ' ' + 'tentativi' + ' ' + tent);
 
-    return tent
+    return tent;
 }
-console.log(tent);
+
+function clickNon(params) {
+    this.style.pointerEvents = 'none';
+}
 
 function generateSquare(generateNumber, gridSize) {
     
     const square = document.createElement('div');
-    square.classList.add('square')
+    square.classList.add('square');
     square.innerHTML = `<span>${generateNumber}</span>`;
     square.style.width = `calc(100% / ${gridSize})`;
     square.style.height = `calc(100% / ${gridSize})`;
 
-    return square
+    return square;
 }
 
 function getRndInteger(min, max) {
