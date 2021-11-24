@@ -54,7 +54,13 @@ function startGame() {
 
     while (bombArray.length <= 16) {
 
-        bombArray.push(getRndInteger(gridMaxNumber))
+        bombArray.push(getRndInteger(1, gridMaxNumber))
+        
+    }
+
+    if (bombArray.includes(gridMaxNumber)) {
+
+        newSquare.addEventListener('click',bomb )
         
     }
 
@@ -62,6 +68,10 @@ function startGame() {
 
 function clicked() {
     this.classList.add('active');
+}
+
+function bomb() {
+    this.classList.add('bomba');
 }
 
 
